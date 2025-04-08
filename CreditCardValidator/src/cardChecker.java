@@ -1,44 +1,36 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class cardChecker {
 
-	public static int getUserCardNumber()
-	{
-		int num = -1;
-		try
-		{
-			
-			Scanner numScn = new Scanner(System.in);
 
-			System.out.println("Hello! Please enter a card number to check: ");
-
-			num = numScn.nextInt();
-
-			
-		}
-		catch(InputMismatchException e)
-		{
-			System.out.println("Invalid card number.");
-			getUserCardNumber();
-		}
-		if(num == -1)
-		{
-			System.out.println("Invalid card number.");
-			getUserCardNumber();
-		}
-		return num;
-	
-	}
 	public static boolean isNumberValid(long num)
 	{
 		String[] parsedNum = Long.toString(num).split("");
 		
-		for(int i = 1; i < parsedNum.length; i+= 2)
+		int luhnTotal = 0; 
+		for(int i = 0; i < parsedNum.length; i++)
 		{
-			System.out.println(i);
+			
+			if(i % 2 == 0)
+			{
+				
+				int currentNumber = Integer.parseInt(parsedNum[i]);
+				
+				currentNumber *= 2;
+				
+				if(currentNumber >= 10)
+				{
+					currentNumber = (currentNumber % 10) + (currentNumber / 10);
+				}
+				
+				luhnTotal += currentNumber;
+				
+			}
+			else
+			{
+				luhnTotal += Integer.parseInt(parsedNum[i]);
+			}
+			
 		}
-		return false;
+		return (luhnTotal % 10 == 0) ? true : false;
 	}
 }
 

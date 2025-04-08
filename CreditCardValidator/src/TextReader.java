@@ -8,9 +8,7 @@ import java.util.ArrayList;
 
 public class TextReader {
 	
-	
-	
-	private static ArrayList<Integer> cardList = new ArrayList<Integer>();
+	private static ArrayList<Long> cardList = new ArrayList<>();
 	private static String fileName = "CardList.txt";
 	
 	public static void runFileReader()
@@ -27,11 +25,12 @@ public class TextReader {
 			{
 				
 				//System.out.println(line);
-				int currentCard = Integer.parseInt(line);
+				long currentCard = Long.parseLong(line);
 				cardList.add(currentCard);
+				
 				line = br.readLine();
 			}
-				
+			
 			br.close();
 
 		} 
@@ -42,7 +41,7 @@ public class TextReader {
 		}
 	}
 
-	public static ArrayList<Integer> getCards() {
+	public static ArrayList<Long> getCards() {
 		return cardList;
 	}
 
