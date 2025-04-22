@@ -7,7 +7,7 @@ public class checkDatabaseNumbers {
 	{
 		ArrayList<Long> cards = TextReader.getCards();
 		
-		int numValid = -1;
+		int numValid = 0;
 		
 		for(long card : cards)
 		{
