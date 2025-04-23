@@ -16,7 +16,7 @@ public class cardChecker {
 				
 				currentNumber *= 2;
 				
-				if(currentNumber >= 10)
+				if(currentNumber >= 10)	
 				{
 					currentNumber = (currentNumber % 10) + (currentNumber / 10);
 				}
